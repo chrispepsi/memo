@@ -1,0 +1,42 @@
+Git
+
+reset revert restore(checkout)
+restore [<pathspec>…​]
+  => will not move the head
+reset [<pathspec>…​]
+  $ git reset
+    => return STAGING to the last commit state. Leave WORK and HEAD as they are (cancel add)
+  $ git reset --hard HEAD~3
+    => move the head back and destory the commit
+revert
+  => create a new commit from a history commit
+cherry-pick
+  => create a new commit from a specified commit
+switch
+  => Switch to a specified branch. The working tree and the index are updated to match the branch.
+git checkout [--detach] <commit>
+  => Prepare to work on top of <commit>, by detaching HEAD at it (see "DETACHED HEAD" section),
+     and updating the index and the files in the working tree.
+     Local modifications to the files in the working tree are kept,
+     so that the resulting working tree will be the state recorded in the commit plus the local modifications.
+
+restore 
+  HEAD -> index
+    restore --staged <pathspec>
+  index -> working
+    restore <pathspec>
+
+diff
+  HEAD -> index
+    diff --staged
+  index -> working
+    diff
+  HEAD -> working
+    diff HEAD
+
+rebase
+merge
+
+git reset (--patch | -p) [<tree-ish>] [--] [<pathspec>…​]
+--patch :Interactively select hunks
+tree-ish :commit-ish + directory
